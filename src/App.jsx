@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavBar from "./NavBar";
+import Body from "./Body";
+import Login from "./Login";
+import Profile from "./Profile";
 
 function App() {
   
@@ -9,14 +11,15 @@ function App() {
     <BrowserRouter basename="/">
 
 <Routes>
-  <Route path="/" element={<div>Base page</div>}></Route>
-  <Route path="/login" element={<div>Login page</div>}></Route>
-  <Route path="/test" element={<div>Test page</div>}></Route>
+  <Route path="/" element={<Body/>}>
+    <Route path="/login" element={<Login/>}></Route>
+    <Route path="/profile" element={<Profile/>}></Route>
+  </Route>
+  
 </Routes>
 
     </BrowserRouter>
-     <NavBar/>
-      <h1 className="text-4xl font-extrabold">Hello World</h1>
+     
     </>
   );
 }
