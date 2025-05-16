@@ -7,10 +7,14 @@ const Login = () => {
 
   const handelLogin = async () => {
     try {
-      await axios.post("http://localhost:8000/login", {
-       email: emailId,
-        password,
-      },{withCredentials:true});
+      const res = await axios.post(
+        "http://localhost:8000/login",
+        {
+          email: emailId,
+          password,
+        },
+        { withCredentials: true }
+      );
     } catch (error) {
       console.error("Login error:", error.message);
       // Optionally, set an error state here to display a message to the user
