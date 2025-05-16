@@ -1,9 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addUser } from "./utils/userSlice";
 
 const Login = () => {
   const [emailId, setEmailId] = useState("rohitsharma264@gmail.com");
   const [password, setPassword] = useState("Rohit@123");
+  const dispatch = useDispatch()
 
   const handelLogin = async () => {
     try {
@@ -15,6 +18,8 @@ const Login = () => {
         },
         { withCredentials: true }
       );
+      console.log(res)
+      dispatch(addUser(res.data))
     } catch (error) {
       console.error("Login error:", error.message);
       // Optionally, set an error state here to display a message to the user
@@ -55,7 +60,7 @@ const Login = () => {
           <div className="flex w-full mt-4">
             <div className="flex justify-between items-center w-full">
               <label className="label cursor-pointer flex items-center gap-2">
-                <input type="checkbox" className="checkbox" />
+                <input type="checkbox" className="checkbox " />
                 Remember me
               </label>
               <a href="#" className="text-blue-600 hover:underline">
