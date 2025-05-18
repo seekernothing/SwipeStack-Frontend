@@ -8,6 +8,7 @@ import { BASE_URL } from "../utils/Constants";
 const Login = () => {
   const [emailId, setEmailId] = useState("rohitsharma264@gmail.com");
   const [password, setPassword] = useState("Rohit@123");
+  const [error, setError] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,7 +26,8 @@ const Login = () => {
       dispatch(addUser(res.data));
       return navigate("/");
     } catch (error) {
-      console.error("Login error:", error.message);
+      setError(error?.response?.data || "Something went wrong");
+      console.error();
       // Optionally, set an error state here to display a message to the user
     }
   };
@@ -60,6 +62,8 @@ const Login = () => {
               />
             </fieldset>
           </div>
+
+          <p className="text-red-500">{error}</p>
 
           <div className="flex w-full mt-4">
             <div className="flex justify-between items-center w-full">
