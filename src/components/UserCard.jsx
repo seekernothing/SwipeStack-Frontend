@@ -11,12 +11,14 @@ const UserCard = ({ user }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{`${firstName} ${lastName}`}</h2>
-          <p>{`${age} , ${gender}`}</p>
+          <h2 className="card-title">{`${firstName} ${lastName}, ${age}`}</h2>
+          <p>{`${gender}`}</p>
           <p>{about}</p>
           <div className="card-actions flex justify-between items-center w-full mt-5 ">
-            <button className="btn btn-primary">Ignore</button>
-            <button className="btn btn-primary">Intrested</button>
+            <button className="btn bg-red-500 text-amber-50">Ignore</button>
+            <button className="btn bg-pink-500 text-amber-50">
+              Interested
+            </button>
           </div>
         </div>
       </div>
