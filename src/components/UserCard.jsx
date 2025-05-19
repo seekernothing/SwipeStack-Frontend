@@ -5,7 +5,7 @@ const UserCard = ({ user }) => {
       <div className="card bg-base-100 w-96 shadow-sm border border-amber-400">
         <figure className="w-full h-64 overflow-hidden flex items-center justify-center bg-gray-200">
           <img
-            className="max-w-full max-h-full object-cover object-center rounded"
+            className="w-full h-full object-cover object-center rounded"
             src={photoUrl}
             alt="photo"
           />
