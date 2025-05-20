@@ -38,7 +38,7 @@ const EditProfile = ({ user }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-10 w-full justify-center items-start p-8 bg-base-200 min-h-screen">
+    <div className="flex flex-col md:flex-row gap-10 w-full justify-center items-start p-8 bg-base-100 min-h-screen">
       {showToast && (
         <div className="toast toast-top toast-center">
           <div className="alert alert-success">
