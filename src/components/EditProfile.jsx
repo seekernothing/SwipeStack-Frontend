@@ -51,8 +51,9 @@ const EditProfile = ({ user }) => {
       <div className="flex-1 flex justify-center">
         <div className="card bg-base-100 shadow-xl  w-full max-w-md">
           <div className="card-body">
-            <h2 className="card-title justify-center text-3xl font-bold mb-2 text-primary">
+            <h2 className="card-title justify-center text-3xl font-bold mb-2 ">
               Edit Profile
+              
             </h2>
             <form
               className="flex flex-col gap-7"
@@ -99,7 +100,7 @@ const EditProfile = ({ user }) => {
               </div>
               <div className=" form-control flex gap-4">
                 <label className="label">
-                  <span className="label-text font-semibold">Age</span>
+                  <span className="label-text font-semibold mr-10">Age</span>
                 </label>
                 <input
                   type="number"
@@ -113,7 +114,7 @@ const EditProfile = ({ user }) => {
               </div>
               <div className=" form-control flex gap-4">
                 <label className="label">
-                  <span className="label-text font-semibold">Gender</span>
+                  <span className="label-text font-semibold mr-5">Gender</span>
                 </label>
                 <select
                   className="select select-bordered"
@@ -128,7 +129,7 @@ const EditProfile = ({ user }) => {
               </div>
               <div className=" form-control flex gap-4">
                 <label className="label">
-                  <span className="label-text font-semibold">About</span>
+                  <span className="label-text font-semibold mr-6">About</span>
                 </label>
                 <textarea
                   className="textarea textarea-bordered min-h-[80px]"
