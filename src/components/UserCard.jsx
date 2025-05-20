@@ -3,13 +3,14 @@ const UserCard = ({ user }) => {
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm border border-amber-400">
-        <figure className="w-full h-64 overflow-hidden flex items-center justify-center bg-gray-200">
+        <div className="w-full h-64 overflow-hidden flex items-start justify-center p-3 ">
           <img
-            className="w-full h-full object-cover object-center rounded"
+            className="w-full h-full object-contain object-top rounded "
             src={photoUrl}
             alt="photo"
+            style={{ maxHeight: "100%", maxWidth: "100%" }}
           />
-        </figure>
+        </div>
         <div className="card-body">
           <h2 className="card-title">{`${firstName} ${lastName}, ${age}`}</h2>
           <p>{`${gender}`}</p>
