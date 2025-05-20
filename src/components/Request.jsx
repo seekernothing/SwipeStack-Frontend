@@ -1,42 +1,44 @@
 import axios from "axios";
-import { BASE_URL } from "../utils/Constants";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addConnections } from "../utils/connectionSlice";
+import { BASE_URL } from "../utils/Constants";
+import { addRequests } from "../utils/requestSlice";
+import { useEffect } from "react";
 
-const Connections = () => {
-  const connections = useSelector((store) => store.connections);
-
+const Request = () => {
   const dispatch = useDispatch();
+  const requests = useSelector((store)=>store.request)
+  const fetchRequests = async () => {
 
-  const fetchConnections = async () => {
     try {
-      const res = await axios.get(BASE_URL + "/user/connections", {
+      const res = await axios.get(BASE_URL + "/user/requests/received", {
         withCredentials: true,
       });
 
-      console.log(res?.data?.data);
+      console.log(res)
 
-      dispatch(addConnections(res?.data?.data));
+      dispatch(addRequests(res.data.data));
+
+
     } catch (error) {
       console.error(error.message);
     }
   };
 
   useEffect(() => {
-    fetchConnections();
+    fetchRequests();
   }, []);
 
-  if (!connections) return;
 
-  if (connections.length === 0) return <>No coonections Found</>;
+  if (!requests) return;
+
+  if (requests.length === 0) return <>No request Found</>;
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-base-100 py-10">
-      <h1 className="font-bold text-4xl mb-8 text-primary">Connections</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-base-100 my-5 ">
+      <h1 className="font-bold text-4xl mb-8 text-primary">Requests</h1>
       <div className="flex flex-col gap-8 items-center w-full">
-        {connections.map((connection, idx) => {
-          const { firstName, lastName, photoUrl, age, gender, about } =
-            connection;
+        {requests.map((request, idx) => {
+          const { firstName, lastName, photoUrl, age, gender, about } = request.fromUserId;
           return (
             <div
               key={idx}
@@ -54,17 +56,14 @@ const Connections = () => {
                 <h2 className="card-title">{`${firstName} ${lastName}, ${age}`}</h2>
                 <p>{`${gender}`}</p>
                 <p>{about}</p>
-
-                {/* <div className="card-actions flex justify-between items-center w-full mt-5 ">
+                <div className="card-actions flex justify-between items-center w-full mt-5 ">
                   <button className="btn bg-red-500 text-amber-50">
                     Ignore
                   </button>
                   <button className="btn bg-pink-500 text-amber-50">
                     Interested
                   </button>
-                </div> */}
-
-
+                </div>
               </div>
             </div>
           );
@@ -74,4 +73,4 @@ const Connections = () => {
   );
 };
 
-export default Connections;
+export default Request;
