@@ -1,4 +1,4 @@
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import {  Outlet, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { BASE_URL } from "../utils/Constants";
@@ -9,8 +9,10 @@ import { useEffect } from "react";
 
 const Body = () => {
   const dispatch = useDispatch();
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
+
+
   const fetchUser = async () => {
     if (userData) return;
     try {
@@ -19,8 +21,8 @@ const Body = () => {
       });
       dispatch(addUser(res.data));
     } catch (error) {
-      if (error.status === 401) {
-        Navigate("/login");
+      if (error.response.status === 401) {
+        navigate("/login");
       }
       console.error(error);
     }
@@ -30,6 +32,7 @@ const Body = () => {
     fetchUser();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
