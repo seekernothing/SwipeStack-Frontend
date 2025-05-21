@@ -53,7 +53,6 @@ const EditProfile = ({ user }) => {
           <div className="card-body">
             <h2 className="card-title justify-center text-3xl font-bold mb-2 ">
               Edit Profile
-              
             </h2>
             <form
               className="flex flex-col gap-7"
