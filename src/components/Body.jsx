@@ -1,4 +1,4 @@
-import {  Outlet, useNavigate } from "react-router-dom";
+import {  Outlet, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { BASE_URL } from "../utils/Constants";
@@ -11,7 +11,11 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
+  const location = useLocation();
 
+  // Define routes where Footer should be visible
+  const showFooterRoutes = ["/login", "/signup"];
+  const showFooter = showFooterRoutes.includes(location.pathname);
 
   const fetchUser = async () => {
     if (userData) return;
@@ -36,9 +40,11 @@ const Body = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
+
       {/* // Any children routes of the body will render in the outlet */}
       <Outlet />
-      <Footer />
+
+      {showFooter && <Footer />}
     </div>
   );
 };
