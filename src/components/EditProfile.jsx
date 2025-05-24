@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserCard from "./userCard";
+import UserCard from "./UserCard";
 import { BASE_URL } from "../utils/Constants";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -21,19 +21,19 @@ const EditProfile = ({ user }) => {
   const saveProfile = async () => {
     setError("");
     try {
-      const res = await axios.patch(
+      const res = await axios.patch (
         BASE_URL + "/profile/edit",
         { firstName, lastName, photoUrl, age, gender, about },
         { withCredentials: true }
       );
-      console.log(res);
+     console.log(res)
       dispatch(addUser(res?.data?.data));
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
       }, 1500);
     } catch (error) {
-      setError(error.response.data);
+      setError(error?.response?.data);
     }
   };
 
