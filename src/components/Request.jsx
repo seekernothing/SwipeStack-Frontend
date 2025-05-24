@@ -16,6 +16,7 @@ const Request = () => {
         { withCredentials: true }
       );
       dispatch(removeRequest(_id));
+      
     } catch (error) {
       console.error(error.message);
     }
@@ -75,7 +76,7 @@ const Request = () => {
                     Ignore
                   </button>
                   <button
-                    className="btn bg-pink-500 text-amber-50"
+                    className="btn bg-green-500 text-amber-50"
                     onClick={() => reviewRequest("accepted", request._id)}
                   >
                     Interested
