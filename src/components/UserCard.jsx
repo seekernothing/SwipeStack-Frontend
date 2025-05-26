@@ -51,7 +51,7 @@ const UserCard = ({ user }) => {
         className="card bg-base-100 w-full sm:w-96 h-[30rem] sm:h-[35rem] shadow-sm border border-amber-400 cursor-pointer select-none rounded-lg overflow-hidden transition-transform duration-300 ease-in-out   "
         style={{ touchAction: "pan-y" }}
       >
-        <div className="w-full h-[67%] bg-gray-200 flex items-center justify-center overflow-hidden">
+        <div className="w-full h-[65%] bg-gray-200 flex items-center justify-center overflow-hidden">
           <img
             className="object-cover w-full h-full pointer-events-none"
             src={photoUrl}

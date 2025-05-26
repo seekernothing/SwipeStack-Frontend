@@ -13,7 +13,7 @@ const Body = () => {
   const userData = useSelector((store) => store.user);
   const location = useLocation();
 
-  // Define routes where Footer should be visible
+  // Defining routes where Footer should be visible
   const showFooterRoutes = ["/login", "/signup"];
   const showFooter = showFooterRoutes.includes(location.pathname);
 
@@ -33,6 +33,9 @@ const Body = () => {
   };
 
   useEffect(() => {
+
+    // if (location.pathname === "/") return;
+    
     fetchUser();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

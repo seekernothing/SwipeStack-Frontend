@@ -3,6 +3,7 @@ import { BASE_URL } from "../utils/Constants";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionSlice";
+import { Link } from "react-router-dom";
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
@@ -35,12 +36,12 @@ const Connections = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-base-100 py-10">
       <h1 className="font-bold text-4xl mb-8 text-primary">Connections</h1>
       <div className="flex flex-col gap-8 items-center w-full">
-        {connections.map((connection, idx) => {
-          const { firstName, lastName, photoUrl, age, gender, about } =
+        {connections.map((connection) => {
+          const { _id,firstName, lastName, photoUrl, age, gender, about } =
             connection;
           return (
             <div
-              key={idx}
+              key={_id}
               className="card bg-base-100 w-96 shadow-sm border border-amber-400"
             >
               <div className="w-full h-64 overflow-hidden flex items-center justify-center p-3 ">
@@ -56,6 +57,12 @@ const Connections = () => {
                 <p>{`${gender}`}</p>
                 <p>{about}</p>
 
+                <Link to={"/chat/" + _id}>
+                  <button type="submit" className="btn btn-soft btn-success border border-green-400">
+                    Chat
+                  </button>
+                </Link>
+
                 {/* <div className="card-actions flex justify-between items-center w-full mt-5 ">
                   <button className="btn bg-red-500 text-amber-50">
                     Ignore
@@ -64,8 +71,6 @@ const Connections = () => {
                     Interested
                   </button>
                 </div> */}
-
-
               </div>
             </div>
           );
