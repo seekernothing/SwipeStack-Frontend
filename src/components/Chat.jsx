@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { createSocketConnection } from "../utils/socket";
 import { useSelector } from "react-redux";
+import { BASE_URL } from "../utils/Constants";
+import axios from "axios";
 
 const Chat = () => {
   const { targetUserId } = useParams();
@@ -12,6 +14,36 @@ const Chat = () => {
   const userId = user?._id;
   const socketRef = useRef(null);
   const chatBottomRef = useRef(null);
+
+  const fetchChatMessages = async () => {
+    const chat = await axios.get(BASE_URL + "/chat/" + targetUserId, {
+      withCredentials: true,
+    });
+
+    console.log(chat.data.messages);
+
+
+    const chatMessages = chat?.data?.messages.map((msg) => {
+      const{senderId,text} = msg
+      return {
+        firstName: senderId?.firstName,
+        text: text,
+        userId: senderId?._id,
+        photoUrl: senderId?.photoUrl,
+      };
+    });
+
+    setMessages(chatMessages);
+
+  };
+
+  
+
+ 
+  
+  useEffect(()=>{
+    fetchChatMessages()
+  },[])
 
   useEffect(() => {
     if (!userId) return;
@@ -50,7 +82,10 @@ const Chat = () => {
       userId,
       targetUserId,
       text: newMessage,
+      photoUrl: user.photoUrl,
     };
+   
+    
     console.log("Sending message:", msg);
     socketRef.current.emit("sendMessage", msg);
     setNewMessage("");
@@ -58,9 +93,9 @@ const Chat = () => {
 
   return (
     <div className="flex flex-col h-[80vh] w-full max-w-2xl mx-auto bg-base-100 rounded-lg shadow">
-      <div className="p-4 border-b border-base-200 text-lg font-semibold">
+      {/* <div className="p-4 border-b border-base-200 text-lg font-semibold">
         Chat with {targetUserId}
-      </div>
+      </div> */}
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-3">
         {messages.length === 0 && (
           <div className="text-center text-gray-400">No messages yet</div>
