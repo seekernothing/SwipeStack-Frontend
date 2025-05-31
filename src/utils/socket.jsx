@@ -5,7 +5,7 @@ export const createSocketConnection = ()=>{
     if(location.hostname==="localhost"){
         return io(BASE_URL);
     }else{
-        return io("/api",{path:"/api/socket.io"})
+        return io("/",{path:"/api/socket.io"})
     }
     
 }
