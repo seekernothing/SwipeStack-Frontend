@@ -41,7 +41,7 @@ const Body = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col font font-moondance ">
+    <div className="min-h-screen flex flex-col font font-swipestack ">
       <NavBar />
 
       {/* // Any children routes of the body will render in the outlet */}

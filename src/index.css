@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap')
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
 
 @plugin "daisyui" {
@@ -8,6 +8,7 @@
 }
 
 @theme {
+  --font-swipestack: "Rubik", sans-serif;
   --font-pacifico: "Pacifico", cursive;
   --font-zain: "Zain", sans-serif;
   --font-moondance: "Moon Dance", cursive;
