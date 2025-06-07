@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BASE_URL } from "../utils/Constants";
 import { addRequests, removeRequest } from "../utils/requestSlice";
 import { useEffect } from "react";
+import NoRequestFound from "../fallback/NoRequestFound";
 
 const Request = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const Request = () => {
 
   if (!requests) return;
 
-  if (requests.length === 0) return <>No request Found</>;
+  if (requests.length === 0) return <NoRequestFound/>;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-base-100 my-5 ">

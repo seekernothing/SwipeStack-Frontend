@@ -28,7 +28,7 @@ const Login = () => {
       );
 
       dispatch(addUser(res.data));
-      return navigate("/");
+      return navigate("/feed");
     } catch (error) {
       setError(error?.response?.data || "Something went wrong");
       console.error();
@@ -52,7 +52,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center p-10">
+    <div className="flex justify-center items-center p-10 mt-10 sm:mt-0 ">
       <div className="card card-border bg-base-300 w-90">
         <div className="card-body">
           {isLoginForm ? (
@@ -169,10 +169,7 @@ const Login = () => {
                 </fieldset>
               </div>
               <div className="card-actions justify-center mt-3">
-                <button
-                  onClick={handelSignup}
-                  className="btn btn-primary"
-                >
+                <button onClick={handelSignup} className="btn btn-primary">
                   Sign Up
                 </button>
               </div>

@@ -1,4 +1,4 @@
-import {  Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { BASE_URL } from "../utils/Constants";
@@ -26,25 +26,45 @@ const Body = () => {
       dispatch(addUser(res.data));
     } catch (error) {
       if (error.response.status === 401) {
+        // Redirect to login instead of /login when not authenticated
         navigate("/login");
       }
       console.error(error);
     }
   };
 
+  // useEffect(() => {
+  //   // Only fetch user for authenticated routes (under /app)
+  //   if (location.pathname.startsWith("/app")) {
+  //     fetchUser();
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [location.pathname]);
+
+  // Existing code...
+
   useEffect(() => {
+    // FIX: Condition update karo
+    const protectedRoutes = [
+      "/feed",
+      "/profile",
+      "/connections",
+      "/requests",
+      "/chat",
+    ];
 
-    // if (location.pathname === "/") return;
-    
-    fetchUser();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (protectedRoutes.some((route) => location.pathname.startsWith(route))) {
+      fetchUser();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
+  // Existing code...
   return (
-    <div className="min-h-screen flex flex-col font font-swipestack ">
+    <div className="min-h-screen flex flex-col font font-swipestack">
       <NavBar />
 
-      {/* // Any children routes of the body will render in the outlet */}
+      {/* Any children routes of the body will render in the outlet */}
       <Outlet />
 
       {showFooter && <Footer />}

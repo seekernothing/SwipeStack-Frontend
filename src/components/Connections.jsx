@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionSlice";
 import { Link } from "react-router-dom";
+import NoConnections from "../fallback/NoConnections";
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
@@ -31,7 +32,7 @@ const Connections = () => {
 
   if (!connections) return;
 
-  if (connections.length === 0) return <>No coonections Found</>;
+  if (connections.length === 0) return <NoConnections/>;
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-base-100 py-10">
       <h1 className="font-bold text-4xl mb-8 text-primary">Connections</h1>

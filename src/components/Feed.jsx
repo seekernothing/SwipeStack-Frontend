@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../utils/feedSlice";
 import { useEffect } from "react";
 import UserCard from "./UserCard";
+import NoUserFound from "../fallback/NoUserFound";
 
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
@@ -30,7 +31,7 @@ const Feed = () => {
   }, []);
 
   if (!feed) return null;
-  if (feed.length === 0) return <h1>No new users found</h1>;
+  if (feed.length === 0) return <NoUserFound/>;
 
   return (
     <div className="flex justify-center items-center my-8 relative w-full max-w-80 sm:max-w-sm h-[30rem] sm:h-[35rem] mx-auto">

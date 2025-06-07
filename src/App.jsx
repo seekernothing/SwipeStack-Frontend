@@ -10,21 +10,32 @@ import Connections from "./components/Connections";
 import Request from "./components/Request";
 import Chat from "./components/Chat";
 
-
 function App() {
   return (
     <>
       <Provider store={appStore}>
         <BrowserRouter basename="/">
           <Routes>
-            {/* <Route path="/" element={<LandingPage />} /> */}
+            {/* Landing Page as the main route */}
+            <Route path="/" element={<LandingPage />} />
 
-            <Route path="/" element={<Body />}>
-              <Route path="/" element={<Feed />}></Route>
-              <Route path="/login" element={<Login />}></Route>
+            {/* Login page separate from Body */}
+            <Route path="/login" element={<Login />}></Route>
+
+            {/* All authenticated routes under Body - same as before */}
+            <Route path="/feed" element={<Body />}>
+              <Route path="/feed" element={<Feed />}></Route>
+            </Route>
+            <Route path="/profile" element={<Body />}>
               <Route path="/profile" element={<Profile />}></Route>
+            </Route>
+            <Route path="/connections" element={<Body />}>
               <Route path="/connections" element={<Connections />}></Route>
+            </Route>
+            <Route path="/requests" element={<Body />}>
               <Route path="/requests" element={<Request />}></Route>
+            </Route>
+            <Route path="/chat/:targetUserId" element={<Body />}>
               <Route path="/chat/:targetUserId" element={<Chat />}></Route>
             </Route>
           </Routes>
