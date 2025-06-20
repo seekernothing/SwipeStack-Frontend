@@ -20,7 +20,7 @@ const Chat = () => {
       withCredentials: true,
     });
 
-    console.log(chat.data.messages);
+    // console.log(chat.data.messages);
 
 
     const chatMessages = chat?.data?.messages.map((msg) => {
@@ -57,7 +57,7 @@ const Chat = () => {
     });
 
     socket.on("messageReceived", (msg) => {
-      console.log("Received message:", msg);
+      // console.log("Received message:", msg);
       setMessages((prev) => [...prev, msg]);
     });
 
@@ -86,7 +86,7 @@ const Chat = () => {
     };
    
     
-    console.log("Sending message:", msg);
+    // console.log("Sending message:", msg);
     socketRef.current.emit("sendMessage", msg);
     setNewMessage("");
   };
@@ -103,7 +103,7 @@ const Chat = () => {
 
         {messages.map((msg, index) => {
           const isSelf = String(msg.userId) === String(userId);
-          console.log("Message Render:", msg.text, "isSelf:", isSelf);
+          // console.log("Message Render:", msg.text, "isSelf:", isSelf);
 
           return (
             <div

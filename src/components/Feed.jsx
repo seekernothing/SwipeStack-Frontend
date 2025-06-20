@@ -19,7 +19,7 @@ const Feed = () => {
       });
 
       dispatch(addFeed(res.data.data));
-      console.log(res);
+      // console.log(res);
     } catch (error) {
       console.error(error);
     }

@@ -29,7 +29,7 @@ const Request = () => {
         withCredentials: true,
       });
 
-      console.log(res);
+      // console.log(res);
 
       dispatch(addRequests(res.data.data));
     } catch (error) {

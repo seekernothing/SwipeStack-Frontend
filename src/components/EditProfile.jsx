@@ -26,7 +26,7 @@ const EditProfile = ({ user }) => {
         { firstName, lastName, photoUrl, age, gender, about },
         { withCredentials: true }
       );
-      console.log(res);
+      // console.log(res);
       dispatch(addUser(res?.data?.data));
       setShowToast(true);
       setTimeout(() => {
