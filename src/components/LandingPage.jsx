@@ -76,7 +76,7 @@ const LandingPage = () => {
 
       {/* Features Section */}
       <div className="py-12 sm:py-16 bg-base-200 px-4">
-        <div className="container mx-auto ml-7">
+        <div className="container mx-auto ml-2">
           <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 items-center">
             <div className="lg:w-1/2">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
