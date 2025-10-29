@@ -345,8 +345,8 @@ const LandingPage = () => {
               <p className="text-sm mb-2">
                 Making genuine connections since 2024
               </p>
-              <p className="text-xs text-base-content/70">
-                Copyright © All right reserved by Abhishek Biradar.
+              <p className="text-sm text-base-content/70">
+                <b >Copyright © All right reserved by Abhishek Biradar.</b>
               </p>
             </div>
 
@@ -362,9 +362,7 @@ const LandingPage = () => {
                 <li>
                   <a className="link link-hover text-sm">Careers</a>
                 </li>
-                <li>
-                  <a className="link link-hover text-sm">Contact</a>
-                </li>
+
                 <li>
                   <a className="link link-hover text-sm">Press</a>
                 </li>
@@ -378,16 +376,16 @@ const LandingPage = () => {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a className="link link-hover text-sm">Terms of use</a>
+                  <a className="link link-hover text-sm">Terms of Service</a>
                 </li>
                 <li>
-                  <a className="link link-hover text-sm">Privacy policy</a>
+                  <a className="link link-hover text-sm">Privacy Policy</a>
                 </li>
                 <li>
-                  <a className="link link-hover text-sm">Cookie policy</a>
+                  <a className="link link-hover text-sm">Refund Policy</a>
                 </li>
                 <li>
-                  <a className="link link-hover text-sm">Safety guidelines</a>
+                  <a className="link link-hover text-sm">Contact Us</a>
                 </li>
               </ul>
             </div>
