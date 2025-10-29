@@ -387,7 +387,9 @@ const LandingPage = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className="link link-hover text-sm">Refund Policy</a>
+                  <Link to="/refund-policy" className="link link-hover text-sm">
+                    Refund policy
+                  </Link>
                 </li>
                 <li>
                   <a className="link link-hover text-sm">Contact Us</a>

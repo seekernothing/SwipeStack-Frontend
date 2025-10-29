@@ -10,6 +10,7 @@ import Connections from "./components/Connections";
 import Request from "./components/Request";
 import Chat from "./components/Chat";
 import PrivacyPolicy from "./components/PrivacyPolicy"
+import RefundPolicy from "./components/RefundPolicy";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
 
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+            <Route path="/refund-policy" element={<RefundPolicy />} />
 
             {/* All authenticated routes under Body - same as before */}
             <Route path="/feed" element={<Body />}>
