@@ -346,7 +346,7 @@ const LandingPage = () => {
                 Making genuine connections since 2024
               </p>
               <p className="text-sm text-base-content/70">
-                <b >Copyright © All right reserved by Abhishek Biradar.</b>
+                <b>Copyright © All right reserved by Abhishek Biradar.</b>
               </p>
             </div>
 
@@ -379,7 +379,12 @@ const LandingPage = () => {
                   <a className="link link-hover text-sm">Terms of Service</a>
                 </li>
                 <li>
-                  <a className="link link-hover text-sm">Privacy Policy</a>
+                  <Link
+                    to="/privacy-policy"
+                    className="link link-hover text-sm"
+                  >
+                    Privacy policy
+                  </Link>
                 </li>
                 <li>
                   <a className="link link-hover text-sm">Refund Policy</a>

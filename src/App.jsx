@@ -9,6 +9,7 @@ import Feed from "./components/Feed";
 import Connections from "./components/Connections";
 import Request from "./components/Request";
 import Chat from "./components/Chat";
+import PrivacyPolicy from "./components/PrivacyPolicy"
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
 
             {/* Login page separate from Body */}
             <Route path="/login" element={<Login />}></Route>
+
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
             {/* All authenticated routes under Body - same as before */}
             <Route path="/feed" element={<Body />}>
