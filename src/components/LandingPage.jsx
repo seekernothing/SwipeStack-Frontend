@@ -397,7 +397,9 @@ const LandingPage = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className="link link-hover text-sm">Contact Us</a>
+                  <Link to="/contact-us" className="link link-hover text-sm">
+                    Contact us
+                  </Link>
                 </li>
               </ul>
             </div>

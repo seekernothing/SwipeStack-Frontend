@@ -12,6 +12,7 @@ import Chat from "./components/Chat";
 import PrivacyPolicy from "./components/PrivacyPolicy"
 import RefundPolicy from "./components/RefundPolicy";
 import TermsOfService from "./components/TermsOfService"
+import ContactUs from "./components/ContactUs"
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
             <Route path="/refund-policy" element={<RefundPolicy />} />
 
             <Route path="/terms-of-service" element={<TermsOfService />} />
+
+            <Route path="/contact-us" element={<ContactUs />} />
 
             {/* All authenticated routes under Body - same as before */}
             <Route path="/feed" element={<Body />}>
