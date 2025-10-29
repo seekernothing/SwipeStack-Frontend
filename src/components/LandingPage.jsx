@@ -376,7 +376,12 @@ const LandingPage = () => {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a className="link link-hover text-sm">Terms of Service</a>
+                  <Link
+                    to="/terms-of-service"
+                    className="link link-hover text-sm"
+                  >
+                    Terms of Service
+                  </Link>
                 </li>
                 <li>
                   <Link
