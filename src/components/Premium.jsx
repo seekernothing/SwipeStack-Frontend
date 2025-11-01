@@ -1,8 +1,26 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../utils/Constants";
 
 const Premium = () => {
+
+
+ 
+    const[isUserPremium,setIsUserPremium] = useState(false)
+
+    useEffect(() => {
+      verifyPremiumUser();
+    }, []);
+
+   const verifyPremiumUser = async () => {
+     const res = await axios.get(BASE_URL + "/premium/verify", {
+       withCredentials: true,
+     });
+
+     if (res.data.isPremium) {
+       setIsUserPremium(true);
+     }
+   };
 
   const handelBuyClick = async (type)=>{
     const order = await axios.post(BASE_URL+"/payment/create",
@@ -19,21 +37,22 @@ const Premium = () => {
 const {amount,keyId,currency,notes,orderId} = order.data
 
    const options = {
-     key: keyId, 
-     amount: amount, 
+     key: keyId,
+     amount: amount,
      currency,
      name: "SwipeStack",
      description: "Connect with peoples",
      order_id: orderId, // This is the order_id created in the backend
-     callback_url: "http://localhost:3000/payment-success", // Your success URL
+    
      prefill: {
-       name:notes.firstName + " " + notes.lastName,
+       name: notes.firstName + " " + notes.lastName,
        email: notes.lastName,
        contact: "9999999999",
      },
      theme: {
        color: "#F37254",
      },
+     handler: verifyPremiumUser,
    };
 
  const rzp = new window.Razorpay(options);
@@ -42,7 +61,7 @@ const {amount,keyId,currency,notes,orderId} = order.data
 
   }
 
-  return (
+  return isUserPremium?"You are already a premium user": (
     <div className="flex items-center justify-center min-h-screen ml-0 lg:ml-10 p-4 lg:p-0">
       <div className="flex w-full max-w-6xl flex-col lg:flex-row px-4 lg:px-8 gap-4 lg:gap-0">
         {/* Silver Plan */}
