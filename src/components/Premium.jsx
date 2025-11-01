@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../utils/Constants";
+import SuccessfulPurchase from "../fallback/SuccessfulPurchase";
 
 const Premium = () => {
 
@@ -61,7 +62,7 @@ const {amount,keyId,currency,notes,orderId} = order.data
 
   }
 
-  return isUserPremium?"You are already a premium user": (
+  return isUserPremium?<SuccessfulPurchase/>: (
     <div className="flex items-center justify-center min-h-screen ml-0 lg:ml-10 p-4 lg:p-0">
       <div className="flex w-full max-w-6xl flex-col lg:flex-row px-4 lg:px-8 gap-4 lg:gap-0">
         {/* Silver Plan */}
