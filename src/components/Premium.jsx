@@ -1,6 +1,47 @@
+import axios from "axios";
 import React from "react";
+import { BASE_URL } from "../utils/Constants";
 
 const Premium = () => {
+
+  const handelBuyClick = async (type)=>{
+    const order = await axios.post(BASE_URL+"/payment/create",
+    {
+     membershipType: type,
+    },
+
+  {withCredentials:true}
+
+)
+
+// open the razorpay dialouge box
+
+const {amount,keyId,currency,notes,orderId} = order.data
+
+   const options = {
+     key: keyId, 
+     amount: amount, 
+     currency,
+     name: "SwipeStack",
+     description: "Connect with peoples",
+     order_id: orderId, // This is the order_id created in the backend
+     callback_url: "http://localhost:3000/payment-success", // Your success URL
+     prefill: {
+       name:notes.firstName + " " + notes.lastName,
+       email: notes.lastName,
+       contact: "9999999999",
+     },
+     theme: {
+       color: "#F37254",
+     },
+   };
+
+ const rzp = new window.Razorpay(options);
+ rzp.open();
+
+
+  }
+
   return (
     <div className="flex items-center justify-center min-h-screen ml-0 lg:ml-10 p-4 lg:p-0">
       <div className="flex w-full max-w-6xl flex-col lg:flex-row px-4 lg:px-8 gap-4 lg:gap-0">
@@ -22,7 +63,10 @@ const Premium = () => {
               <p>✓ Monthly exclusive content</p>
             </div>
 
-            <button className="btn btn-primary w-full text-sm lg:text-base">
+            <button
+              onClick={() => handelBuyClick("silver")}
+              className="btn btn-primary w-full text-sm mt-16 lg:text-base"
+            >
               Buy Silver Plan
             </button>
           </div>
@@ -52,14 +96,17 @@ const Premium = () => {
               <p>✓ Offline downloads</p>
             </div>
 
-            <button className="btn btn-primary w-full text-sm lg:text-base">
+            <button 
+            onClick={()=>handelBuyClick("gold")}
+            className="btn btn-primary w-full text-sm lg:text-base">
               Buy Gold Plan
             </button>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
+
 
 export default Premium;
