@@ -73,8 +73,7 @@ frontend/
     ├── styles/
     └── utils/
 
-### 🖥️ Backend (`swipestack-backend`)
-```bash
+
 backend/
 ├── config/
 ├── controllers/
