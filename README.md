@@ -56,7 +56,7 @@
 
 ## 📁 Folder Structure
 
-### 🖥️ Frontend (`swipestack-frontend`)
+### 🖥️ SwipeStack
 ```bash
 frontend/
 ├── public/
