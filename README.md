@@ -57,39 +57,34 @@
 ## 📁 Folder Structure
 
 ### 🖥️ Frontend (`swipestack-frontend`)
-├── frontend/
-│ ├── public/
-│ └── src/
-│ ├── assets/
-│ ├── components/
-│ ├── context/
-│ ├── hooks/
-│ ├── pages/
-│ ├── redux/
-│ │ ├── slices/
-│ │ └── store/
-│ ├── services/
-│ ├── styles/
-│ └── utils/
-│
+```bash
+frontend/
+├── public/
+└── src/
+    ├── assets/
+    ├── components/
+    ├── context/
+    ├── hooks/
+    ├── pages/
+    ├── redux/
+    │   ├── slices/
+    │   └── store/
+    ├── services/
+    ├── styles/
+    └── utils/
 
-### ⚙️ Backend (`swipestack-backend`)
-project-root/
-├── backend/
-│ ├── config/
-│ ├── controllers/
-│ ├── middlewares/
-│ ├── models/
-│ ├── routes/
-│ └── utils/
-│
+⚙️ Backend (swipestack-backend)
+backend/
+├── config/
+├── controllers/
+├── middlewares/
+├── models/
+├── routes/
+└── utils/
 
+⚙️ Environment Variables
 
----
-
-## ⚙️ Environment Variables
-
-Create a `.env` file in `/src` of the backend:
+Create a .env file in the root of the backend:
 
 PORT=8000
 MONGO_URI=your_mongodb_connection_string
