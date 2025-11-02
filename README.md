@@ -1,12 +1,100 @@
-# React + Vite
+# 💞 SwipeStack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A Tinder-inspired MERN app for making meaningful connections — with secure login, real-time chat, Razorpay integration, and beautiful swipe-based UI.
 
-Currently, two official plugins are available:
+![SwipeStack Preview](https://swipestack.shop/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 **Secure Authentication** — JWT + HTTP-only cookies  
+- 💬 **Real-Time Chat** — Implemented with Socket.IO  
+- 💳 **Razorpay Integration** — For seamless and secure payments  
+- 💞 **Swipe-based Matching System** — Like or Ignore profiles with fluid transitions  
+- ⚙️ **Cron Jobs** — Automated background tasks  
+- ☁️ **AWS EC2 Deployment** — Nginx + PM2 for production  
+- 🧱 **Clean MVC Architecture** — Organized routes, models, and utils  
+- ⚛️ **Frontend with React + Vite** — Fast, responsive, and modern UI  
+- 🎨 **Tailwind + DaisyUI** — Clean and customizable styling system  
+
+---
+
+## 🧠 Tech Stack
+
+**Frontend**
+- React (Vite)
+- Redux Toolkit
+- React Router v7
+- Socket.IO Client
+- Tailwind CSS v4.1 + DaisyUI
+- Axios
+- React Spring (animations)
+- React Tinder Card (swipe)
+
+**Backend**
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- Socket.IO
+- Razorpay SDK
+- JWT (jsonwebtoken)
+- bcrypt
+- validator
+- node-cron
+- dotenv
+- cors
+- cookie-parser
+
+**Deployment**
+- AWS EC2 (Ubuntu)
+- Nginx (reverse proxy)
+- PM2 (process manager)
+- HTTPS enabled
+
+---
+
+## 📁 Folder Structure
+
+### 🖥️ Frontend (`swipestack-frontend`)
+├── frontend/
+│ ├── public/
+│ └── src/
+│ ├── assets/
+│ ├── components/
+│ ├── context/
+│ ├── hooks/
+│ ├── pages/
+│ ├── redux/
+│ │ ├── slices/
+│ │ └── store/
+│ ├── services/
+│ ├── styles/
+│ └── utils/
+│
+
+### ⚙️ Backend (`swipestack-backend`)
+project-root/
+├── backend/
+│ ├── config/
+│ ├── controllers/
+│ ├── middlewares/
+│ ├── models/
+│ ├── routes/
+│ └── utils/
+│
+
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in `/src` of the backend:
+
+PORT=8000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+
+
