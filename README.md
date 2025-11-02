@@ -82,6 +82,27 @@ backend/
 ├── routes/
 └── utils/
 
+🏗️ Setup & Installation
+1️⃣ Clone the repository
+git clone https://github.com/seekernothing/SwipeStack-Frontend.git
+cd devtinder
+
+2️⃣ Install dependencies
+Frontend
+cd frontend
+npm install
+npm run dev
+
+Backend
+cd backend
+npm install
+npm run dev
+
+3️⃣ Setup environment variables
+
+Create a .env file in both frontend and backend folders.
+Add necessary environment variables as per the .env.example.
+
 ⚙️ Environment Variables
 
 Create a .env file in the root of the backend:
@@ -91,5 +112,3 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 RAZORPAY_KEY_ID=your_razorpay_key_id
 RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-
-
