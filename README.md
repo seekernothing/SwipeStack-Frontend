@@ -277,7 +277,7 @@ NODE_ENV=development
 # ===================================
 # DATABASE
 # ===================================
-MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/swipestack?retryWrites=true&w=majority
+MONGO_URI=
 
 # ===================================
 # AUTHENTICATION
